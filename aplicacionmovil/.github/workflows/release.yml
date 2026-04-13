@@ -21,14 +21,10 @@ jobs:
 
       - run: flutter pub get
 
-      # 📦 AAB
       - run: flutter build appbundle
-
-      # 📱 APK
       - run: flutter build apk --release
 
-      # 🚀 Crear release y subir archivos
-      - name: Release
+      - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
